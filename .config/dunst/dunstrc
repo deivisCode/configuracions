@@ -1,0 +1,34 @@
+[global]
+    monitor = 0
+    follow = none
+    width = (300,600)
+    height = 300
+    origin = top-right
+    offset = 10x50
+    scale = 0
+    notification_limit = 20
+    icon_corner_radius = 0
+    indicate_hidden = yes
+    transparency = 50
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    text_icon_padding = 0
+    frame_width = 3
+    frame_color = "#ed5151"
+    gap_size = 5
+    sort = yes
+    font = FiraCode Nerd Font 12
+[urgency_low]
+    background = "#222222"
+    foreground = "#ffffff"
+    timeout = 25
+[urgency_normal]
+    background = "#222222"
+    foreground = "#ffffff"
+    timeout = 25
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0

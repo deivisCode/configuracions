@@ -1,0 +1,73 @@
+[include]
+    path = ~/.config/delta/delta.gitconfig
+[user]
+    name = deivis
+    email = david.cotelo.online+github@gmail.com
+[init]
+    defaultBranch = principal
+[core]
+    editor = nvim
+    quotePath = false
+    pager = delta
+[clone]
+    defaultRemoteName = orixe
+[push]
+    default = nothing
+[commit]
+    verbose = 2
+[rebase]
+    autoSquash = true
+    missingCommitsCheck = warn
+[branch]
+    sort = -committerdate
+[help]
+    autocorrect = prompt
+[merge]
+    conflictstyle = "zdiff3"
+    diffstat = true
+    summary = true
+[rerere]
+    enabled = 1
+    autoUpdate = true
+[difftool]
+    prompt = false
+[diff]
+    mnemonicprefix = true
+    algorithm = histogram
+    colorMoved = zebra
+    context = 5
+    renames = true
+[interactive]
+    ; diffFilter = delta --color-only
+[alias]
+    l  = log --all --full-history --graph --oneline --pretty=format:'%Cblue%h%Creset %C(auto)%d%C(reset) %C(dim 8)(%cr)%Creset\n%s\n' --date-order --abbrev-commit
+    ll = log --all --full-history --stat --graph --oneline --pretty=format:'%Cblue%H%Creset -%C(auto)%d%C(reset) %C(dim 250)(%cD)%Creset%n %C(bold 240)(%an), %ae%n %B%n %N' --date-order --show-pulls
+    s = status -sb
+    b = branch -vv -a
+    sw = switch
+    sub = submodule
+    r = remote -v
+    f = fetch --prune --all --verbose
+    p = push -v --progress --porcelain
+    wt = worktree
+    c = commit
+    d = diff
+    dt = -c diff.external=difft diff
+    dc = diff --cached
+    pr = "!f() { git fetch $1 refs/pull/$2/head:pr_$2; } ; f"
+    db = "!. ~/.deivis_scripts/git-diff-bytes.sh $@"
+
+[credential "https://github.com"]
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = !/usr/bin/gh auth git-credential
+[maintenance]
+    repo = /home/david/.deivis_datos/proxectos/uni/revista
+    repo = /home/david/.deivis_datos/proxectos/uni/apuntes
+[advice]
+    detachedHead = false
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge --skip -- %f
+    process = git-lfs filter-process --skip
+    required = true

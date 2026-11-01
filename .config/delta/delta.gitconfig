@@ -1,0 +1,21 @@
+# vim:ft=gitconfig
+[delta]
+    minus-style = "#FF0000" "#271A1A"
+    plus-style = "#00ff00" "#001D02"
+    line-numbers = true
+    line-numbers-left-format = "{nm:>2} "
+    line-numbers-right-format = "{np:>2} "
+    file-style = bold yellow ul
+    word-diff-regex = "\\S+"
+    max-line-distance = 1
+    blame-format = "({commit:>7}) {author:<18} {timestamp:^16}"
+    blame-separator-format = "{n:^4}"
+    ; side-by-side = true
+    file-decoration-style = grey ul
+    hunk-header-style = omit
+    map-styles = \
+       bold purple => syntax "#330f29", \
+       bold blue => syntax "#271344", \
+       bold cyan => syntax "#0d3531", \
+       bold yellow => syntax "#222f14"
+       zero-style = syntax

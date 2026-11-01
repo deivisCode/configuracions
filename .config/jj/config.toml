@@ -1,0 +1,127 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name  = "deivis"
+email = "david.cotelo.online+github@gmail.com"
+
+[ui]
+conflict-marker-style = "git"
+default-command       = ["status"]
+diff-editor           = ["nvim", "-c" ,"packadd nvim.difftool", "-c", "DiffTool $left $right"]
+editor                = ["nvim"]
+pager = "delta"
+
+[aliases]
+l  = ["log"  , "-r"  , "::" , "-T" , "deivis_log"]
+r  = ["git","remote","list"]
+ol = ["op"   , "log" , "-T" , "deivis_op_log"]
+el = ["evolog", "-T", "deivis_evolog"]
+d  = ["diff" , "--git"]
+follas  = ["log", "-r", "heads(all())","-T" , "deivis_log"] # 'Básicamente, 'leafs' dun grafo'
+b = ["bookmark","list","--all-remotes", "--sort","committer-date"]
+ws = ["workspace"]
+
+[templates]
+draft_commit_description = '''
+    concat(
+        builtin_draft_commit_description,
+        "\nJJ: ignore-rest",
+        "\nJJ: ------------------------ >8 ------------------------\n",
+        diff.git(),
+    )
+'''
+# Nodos do log, os puntos que aparecen na esquerda
+log_node = '''
+    label(
+        "nodo",
+        coalesce(
+            if(!self                , "🮀" ) ,
+            if(current_working_copy , label("aqui","") ) ,
+            if(root                 , "┴" ) ,
+            if(immutable            , "◆", "○"),
+        )
+)
+'''
+
+[template-aliases]
+'baleira'     = '''if(empty, "(baleira)")'''
+'hash'        = '''commit_id.short(6)'''
+'conflitos'   = '''if(conflict, "[CONFLITO]")'''
+'referencias' = '''if(local_bookmarks || remote_bookmarks || tags, "("++ separate(", ", local_bookmarks, remote_bookmarks, tags) ++")")'''
+'mensaxe'     = '''"\n" ++ coalesce(description.first_line(), label("baleira", "(sen_mensaxe)"))'''
+'tempo'       = '''"(" ++ commit_timestamp(self).ago() ++ ")"'''
+'cambios'     = '''
+    format_short_id(self.change_id()).prefix().upper()
+    ++
+    if(divergent, "/"++change_offset)
+'''
+'deivis_log'  = '''
+    separate(
+        " ",
+        if(root, "..."),
+        label("hash"    , hash),
+        label("cambios" , cambios),
+        if(!root, label("conflitos"   , conflitos)),
+        if(!root, label("referencias" , referencias)),
+        if(!root, label("mensaxe"     , mensaxe)),
+        if(!root, label("baleira"     , baleira)),
+        if(!root, label("tempo"       , tempo)),
+    )
+'''
+deivis_op_log = '''
+    separate(
+        " ",
+        id.short(6),
+        description ++ "\n      ",
+        tags,
+    )
+'''
+deivis_evolog = '''
+    separate(
+        " ",
+        commit.commit_id().short(6),
+        commit.change_id().shortest().upper(),
+        commit.committer().timestamp().ago(),
+        if(operation, "["++operation.description()++"]" ),
+        "\n"++inter_diff.stat(),
+        "\n"++inter_diff.summary()
+    )
+'''
+
+# inter_diff.stat(),
+# inter_diff.summary(),
+# inter_diff.git(),
+# current_operation
+# current_operation.tags()
+# operation.time.end()
+# durations()
+
+[colors]
+# "prefix"                                     = { bold = false }
+"change_id"                                  = { fg = "blue", bold = true }
+"divergent change_id"                        = { fg = "blue", bold = true }
+"commit_id"                                  = { fg = "blue" }
+"conflitos"                                  = { fg = "red", bold = true}
+"baleira"                                    = { fg = "yellow"}
+"log commit nodo"                            = { fg = "white" }
+"log commit aqui"                            = { fg = "red", bold = true }
+"log commit hash"                            = { fg = "blue" }
+"tempo"                                      = { fg = "#545051" }
+"timestamp"                                  = { fg = "#545051" }
+"operation tags"                             = { fg = "#545051" }
+"bookmarks"                                  = { fg = "green", bold = false}
+"working_copy bookmarks"                     = { fg = "green", bold = false}
+"working_copy divergent"                     = { fg = "#ffa500", bold = true}
+"bookmarks name"                             = { fg = "green", bold = false}
+"bookmarks remote"                           = { fg = "green"}
+"local_bookmarks"                            = { fg = "green"}
+"local_bookmarks name"                       = { fg = "green"}
+"remote_bookmarks"                           = { fg = "green"}
+"diff modified"                              = { fg = "red"}
+"diff removed token"                         = { fg = "bright red", underline = false }
+"diff added token"                           = { fg = "bright green", underline = false }
+"change_offset"                              = { fg = "#ffa500", bold = true}
+"working_copy empty"                         = { fg = "yellow" }
+"commit empty"                               = { fg = "yellow" }
+"empty description placeholder"              = { fg = "yellow" }
+"working_copy empty description placeholder" = { fg = "yellow" }

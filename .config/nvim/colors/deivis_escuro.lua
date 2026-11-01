@@ -1,0 +1,255 @@
+vim.cmd.highlight('clear')
+
+local hl = function(nome, valor) vim.api.nvim_set_hl(0, nome, valor) end
+
+hl( "DiffAdd"          , { bg = "#002101" })
+hl( "TreeWalker"       , { bg = "#1a3e1a" })
+hl( "DiffChange"       , { bg = "#14142f" })
+hl( "CursorLine"       , { bg = "#212121" })
+hl( "QuickFixLine"     , { bg = "#242A30" })
+hl( "Pmenu"            , { bg = "#353941" })
+hl( "NormalFloat"      , { bg = "NONE"    })
+hl( "WinBarNC"         , { bg = "NONE"    })
+hl( "WinBar"           , { bg = "NONE"    })
+hl( "Visual"           , { fg = "NONE"    , bg =  "#414113" })
+hl( "Question"         , { fg = "NONE"    , bold = true })
+hl( "Added"            , { fg = "#00FF00" , bg = "#001D02" })
+hl( "Changed"          , { fg = "#6AFFFF" , bg = "#1A1A33" })
+hl( "Removed"          , { fg = "#FF0000" , bg = "#271A1A" })
+hl( "PmenuMatchSel"    , { fg = "#ff0000" , bg = "#353941" , bold = true })
+hl( "PmenuSel"         , { fg = "#ffffa8" , bg = "#353941" , italic=true })
+hl( "StatusLine"       , { fg = "#ABB2BF" , bg = "#353941" })
+hl( "PmenuMatch"       , { fg = "#ff0000" , bg = "#353941" })
+hl( "Substitute"       , { fg = "#cccccc" , bg = "#6a4424" })
+hl( "CurSearch"        , { fg = "#333333" , bg = "#FF803e" , bold = true })
+hl( "Search"           , { fg = "#1a1a1a" , bg = "#FFF464" , bold = true })
+hl( "Include"          , { fg = "#BD977D" , bg = "NONE"    , bold = true })
+hl( "Underlined"       , { fg = "#5bccf4" , bg = "NONE"    , underline = true, nocombine=true })
+hl( "MoreMsg"          , { fg = "#FFA948" , bg = "NONE" })
+hl( "DiffText"         , { fg = "#6AFFFF" , bg ="#1A1A33", bold = true })
+hl( "Operator"         , { fg = "#FFFFA8" , bold = true  , nocombine = true })
+hl( "Boolean"          , { fg = "#FFFFA8" , bold = true  , underline = true })
+hl( "Label"            , { fg = "#AB9DF2" , bold = true })
+hl( "Conditional"      , { fg = "#C051E6" , bold = true })
+hl( "Keyword"          , { fg = "#C051E6" , bold = true })
+hl( "Repeat"           , { fg = "#C051E6" , bold = true })
+hl( "Exception"        , { fg = "#D02000" , bold = true })
+hl( "TabLineSel"       , { fg = "#D9D9D9" , bold = true })
+hl( "TabLineFill"      , { fg = "NONE", bg = "NONE" })
+hl( "CursorLineNr"     , { fg = "#ED5151" , bold = true })
+hl( "Error"            , { fg = "#FF0000" , bold = true })
+hl( "DiagnosticInfo"   , { fg = "#528BFF" , bold = true })
+hl( "Directory"        , { fg = "#528BFF" , bold = false})
+hl( "DiagnosticHint"   , { fg = "#AB9DF2" })
+hl( "DiagnosticWarn"   , { fg = "#FFA948" })
+hl( "ErrorMsg"         , { fg = "#FF0000" })
+hl( "AddedNr"          , { fg = "#00FF00" })
+hl( "ChangedNr"        , { fg = "#6AFFFF" })
+hl( "RemovedNr"        , { fg = "#FF0000" })
+hl( "Title"            , { fg = "#dec2ac" , bold = true })
+hl( "Function"         , { fg = "#6AFFFF" , nocombine = true })
+hl( "Delimiter"        , { fg = "#FFFFFF" , nocombine=  true , bold = true })
+hl( "String"           , { fg = "#00C632" , nocombine=  true })
+hl( "Comment"          , { fg = "#585858" , nocombine=  true })
+hl( "helpSectionDelim" , { fg = "#FFA948" , underline=  true })
+hl( "DiagnosticOk"     , { fg = "#00FF00" })
+hl( "Folded"           , { fg = "#434853" })
+hl( "Whitespace"       , { fg = "#434853" })
+hl( "qfFileName"       , { fg = "#528BFF" })
+hl( "TabLine"          , { fg = "#585858" , bg = "NONE"})
+hl( "LineNr"           , { fg = "#666B76" })
+hl( "DiffDelete"       , { fg = "#9E1738" })
+hl( "Type"             , { fg = "#97ccff" })
+hl( "EndOfBuffer"      , { fg = "#ABB2BF" })
+hl( "WinSeparator"     , { fg = "#ABB2BF" })
+hl( "NonText"          , { fg = "#ACA7D0" })
+hl( "Statement"        , { fg = "#C051E6" })
+hl( "Constant"         , { fg = "#D9D9D9" })
+hl( "Identifier"       , { fg = "#D9D9D9" })
+hl( "Normal"           , { fg = "#D9D9D9", bg = "NONE", nocombine = true })
+hl( "Character"        , { fg = "#FFA948" })
+hl( "SpecialChar"      , { fg = "#FFA948" })
+hl( "Number"           , { fg = "#FFFF00" })
+hl( "NrSeparator"      , { fg = "#242A30" })
+hl( "Structure"        , { fg = "#D9D9D9" })
+hl( "Special"          , { fg = "NONE"    })
+hl( "ComplMatchIns"    , { italic = true  })
+hl( "FloatTitle"       , { italic = true  })
+hl( "Todo"             , { link = "Error" })
+hl( "DiagnosticError"  , { link = "ErrorMsg"})
+hl( "helpOption"       , { link = "Normal" })
+hl( "Float"            , { link = "Number" })
+hl( "FloatBorder"      , { link = "Comment" })
+hl( "IncSearch"        , { link = "Search"})
+
+-- Para a statusline
+hl('hl_modo_Normal'   , { fg="#1A1A1A" , bg="#ABB2BF" , bold = true  } )
+hl('hl_modo_Insert'   , { fg="#1A1A1A" , bg="#FFF464" , bold = true  } )
+hl('hl_modo_Replace'  , { fg="#1A1A1A" , bg="#00C632" , bold = true  } )
+hl('hl_modo_Visual'   , { fg="#1A1A1A" , bg="#FFF464" , bold = true  } )
+hl('hl_modo_Command'  , { fg="#1A1A1A" , bg="#ED5151" , bold = true  } )
+hl('hl_modo_Terminal' , { fg="#1A1A1A" , bg="#9B5FE0" , bold = true  } )
+hl('hl_modo_Complete' , { fg="#1A1A1A" , bg="#BD977D" , bold = true  } )
+hl('hl_modo_Query'    , { fg="#1A1A1A" , bg="#0080FF" , bold = true  } )
+
+-- Detalles de formato (liñas finais, espazos blancos, etc)
+hl( 'formato', { undercurl = true, sp = "#991616"})
+
+-- Meus comentarios para cousas que hai que facer
+hl( 'FACER', { fg = "#000000", bg = "#ed5151", bold=true  })
+hl( 'AQUI' , { fg = "#000000", bg = "#0080ff", bold=true  })
+hl( 'NOTA' , { fg = "#000000", bg = "#9FFF9F", bold=true  })
+
+-- SPELL
+hl( "SpellBad"   , { undercurl = true, sp="#FF0000"})
+hl( "SpellCap"   , { undercurl = true, sp="#FFFF00"})
+hl( "SpellRare"  , { undercurl = true, sp="#00ff00"})
+hl( "SpellLocal" , { undercurl = true, sp="#00ff00"})
+
+-- TREESITTER
+hl( "@markup.environment.name" , { fg = "#AB9DF2" })
+hl( "@variable.builtin"        , { fg = "#9FFF9F" , bold      = true })
+hl( "@constructor"             , { fg = "#9FFF9F" , italic    = true })
+hl( "@keyword.import"          , { fg = "#BD977D" , bold      = true })
+hl( "@markup.environment"      , { fg = "#C051E6" , bold      = true })
+hl( "@keyword"                 , { fg = "#C051E6" , bold      = true })
+hl( "@keyword.function"        , { fg = "#FFA948" , bold      = true })
+hl( "@function"                , { fg = "#528BFF" , nocombine = true })
+hl( "@function.method"         , { fg = "#FFC993" , nocombine = true })
+hl( "@markup.math"             , { fg = "#FFA948" , bold      = true, nocombine = true})
+hl( "@attribute"               , { fg = "#0080FF" , bold      = true, underline = true })
+hl( "@_url"                    , { fg = "#528BFF" , underline = true, nocombine = true, italic = true})
+hl( "@keyword.type"            , { link = "@keyword.function" })
+hl( "@keyword.return"          , { link = "@keyword.function"})
+hl( "@punctuation.bracket"     , { link = "Delimiter"})
+hl( "@keyword.exception"       , { link = "Error"})
+hl( "@function.builtin"        , { link = "Function"})
+hl( "@punctuation.delimiter"   , { link = "Operator"})
+
+-- PYTHON
+hl("pythonStatement"               , { fg = "#FFA948", bold = true})
+hl("pythonDecorator"               , { fg = "#0080FF", bold = true})
+hl("pythonDecoratorName"           , { fg = "#0080FF", bold = true})
+hl("@string.documentation.python"  , { fg = "#00C632", nocombine = true })
+hl("pythonFunction"                , { link = "@Function"})
+hl("@keyword.type.python"          , { link = "@keyword.function" })
+hl("pythonOperator"                , { link = "Keyword"})
+hl("requirementsVersionSpecifiers" , { link = "Operator" })
+hl("@type.builtin.python"          , { nocombine = true })
+
+-- LATEX
+hl( "@module.latex"              , { fg = "#C051E6", bold=true})
+hl( "@punctuation.special.latex" , { fg = "#FF197C", underline=true })
+hl( "@string.special.path.latex" , { link = "String" })
+hl( "@variable.parameter.latex"  , { link = "Number" })
+hl( "@variable.latex"            , { link = "SpecialChar" })
+
+-- TYPST
+hl("@punctuation.special.typst", { fg = "#ff803e", nocombine = true})
+hl("@keyword.typst.context"    , { fg = "#FF197C", bold = true, italic = true})
+
+-- LUA
+hl("@constructor.lua", {link = "Delimiter"})
+
+-- PWSH
+hl("@variable.builtin.powershell", {fg = "#cc1966"})
+
+--VIMDOC
+hl("@label.vimdoc"            , {fg = "#FF803E"})
+hl("@markup.heading.1.vimdoc" , { fg = "#FF803E", bold = true} )
+hl("@markup.heading.3.vimdoc" , { fg = "#E3CEAB", bold = true, underline=true} )
+hl("@markup.heading.4.vimdoc" , { fg = "#E3CEAB" } )
+
+-- SQL
+hl("sqlStatement", { link = "Keyword" })
+
+-- GITSIGNS
+hl( "GitSignsAdd"          , { fg="#00FF00" , bg="None" })
+hl( "GitSignsDelete"       , { fg="#FF0000" , bg="None" })
+hl( "GitSignsChange"       , { fg="#6AFFFF" , bg="None" })
+hl( "GitSignsAddInline"    , { link = "GitsignsAdd" })
+hl( "GitSignsChangeInline" , { link = "GitsignsChange"})
+hl( "GitSignsDeleteInline" , { link = "GitsignsDelete"})
+
+-- FUGITIVE
+hl("FugitiveUntrackedHeading"  , { link = "DiagnosticWarn"  })
+hl("FugitiveUntrackedModifier" , { link = "DiagnosticError" })
+hl("FugitiveUnstagedHeading"   , { link = "DiagnosticWarn"  })
+hl("FugitiveUnstagedModifier"  , { link = "DiagnosticError" })
+hl("FugitiveStagedModifier"    , { link = "DiagnosticInfo"  })
+hl("FugitiveStagedHeading"     , { link = "DiagnosticWarn"  })
+hl("FugitiveHash"              , { link = "Number"})
+
+-- Git
+hl("GitHash"            , { link = "Number"         })
+hl("GitEmail"           , { link = "Underlined"     })
+hl("GitDate"            , { link = "Comment"        })
+hl("GitIdentity"        , { link = "Underlined"     })
+hl("GitIdentityKeyword" , { link = "Comment"        })
+hl("GitKeyword"         , { link = "Comment"        })
+hl("diffFile"           , { link = "DiagnosticWarn" })
+hl("diffNewFile"        , { link = "AddedNr"        })
+hl("diffOldFile"        , { link = "RemovedNr"      })
+hl("diffSubname"        , { link = "DiffLine"       })
+hl("diffLine"           , { bg = "#0080FF", fg = "#222222", bold = true})
+hl("diffFile"           , { bg = "#FFA948", fg = "#222222", bold = true})
+hl("gitrebaseCommit"    , { link = "Azul" })
+hl("gitrebaseSummary"   , { link = "Normal" })
+hl("gitrebasePick"      , { link = "Keyword" })
+hl("gitrebaseSquash"    , { fg = "#ff803e", bold = true})
+hl("gitrebaseFixup"     , { fg = "#ff803e", bold = true})
+hl("gitrebaseEdit"      , { fg = "#00c632", bold = true})
+hl("gitrebaseHash"      , { link = "Number" })
+hl("gitrebaseDrop"      , { link = "Error" })
+
+-- TREESITTER CONTEXT
+hl("TreesitterContextSeparator", { link = "Comment"})
+
+-- Cores simples
+hl( "Laranxa"  , {fg = "#FF803E"})
+hl( "Verde"    , {fg = "#00C632"})
+hl( "Vermello" , {fg = "#ff0000"})
+hl( "Amarelo"  , {fg = "#ffff00"})
+hl( "Morado"   , {fg = "#9B5FE0"})
+hl( "Azul"     , {fg = "#528BFF"})
+
+-- Luasnip
+hl( "LuaSnipPopupChoice", { fg ="#ffffa8", italic = true})
+
+-- UndoTree
+hl( "UndotreeTimeStamp" , { link = "Comment" })
+hl( "UndotreeCurrent"   , { fg = "#ED5151", bold = true})
+hl( "UndotreeSavedBig"  , { link = "DiagnosticWarn"})
+
+-- Just
+hl( "justBody"              , { link = "@Function"} )
+hl( "justSet"               , { link = "@Keyword"} )
+hl( "justAlias"             , { link = "@Keyword"} )
+hl( "justFunction"          , { link = "@Function"} )
+hl( "justExport"            , { link = "@keyword.import"} )
+hl( "justShellSetValue"     , { link = "Delimiter"} )
+hl( "justExprParen"         , { link = "Delimiter"} )
+hl( "justLineLeadingSymbol" , { fg = "#ff803e"} )
+hl( "justAssignment"        , { fg = "#ff803e", nocombine = true} )
+hl( "justRecipeAttr"        , { link = "@normal"} )
+
+-- Rust
+hl( "@function.macro.rust"      , { fg = "#528BFF" } )
+hl( "@type.builtin.rust"        , { link = "Type" } )
+hl( "@constant.builtin.rust"    , { link = "Constructor" } )
+hl( "@keyword.modifier.rust"    , { fg = "#FF197C", bold = true, nocombine = true } )
+hl( "@punctuation.special.rust" , { link = "@attribute"})
+hl( "@attribute.builtin.rust"   , { link = "@keyword.modifier.rust"})
+
+-- C/C++
+hl( "@type.builtin.c"   , { link = "Type" } )
+hl( "@type.builtin.cpp" , { link = "Type" } )
+hl( "@constant.c"       , { link = "Character" } )
+hl( "@constant.macro.c" , { link = "@constant.c" } )
+
+-- JQ
+hl( "jqParentheses", { link = "Operator"})
+hl( "jqType", { link = "Operator"})
+
+-- NVIM TREE
+hl( "NvimTreeImageFile", { link = "Normal" } )

@@ -1,0 +1,32 @@
+%% Necesario poñer
+%% export BIBTOOLRSC="$HOME/.config/bibtool/config.rsc"
+
+resource                 = {braces}   % deberían vir ca distro de bibtool
+resource                 = {improve}  %
+resource                 = {biblatex} %
+%resource                 = {iso2tex}  % non furrula ben
+resource                 = {check_y}  %
+print.line.length        = 200
+print.align.key          = 0
+print.align      = 18
+print.use.tab            = off
+ignored.word             = {of}
+ignored.word             = {and}
+ignored.word             = {on}
+ignored.word             = {to}
+ignored.word             = {from}
+suppress.initial.newline = on
+select.case.sensitive    = off
+%% key.format               = {%+3N(author)_%-5T(title)_%d(year)}
+%% key.format               = {%-3N(author)_%d(year)}
+fmt.et.al                = ".etal"
+fmt.inter.name           = "."
+%fmt.name.name           = "."
+%fmt.name.pre            = "."
+%fmt.name.title          = ":"
+fmt.title.title          = "."
+%fmt.word.separator      = "_"
+check.double.delete      = off
+check.double             = off
+key.number.separator     = "__"
+key.base                 = digit

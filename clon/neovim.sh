@@ -7,5 +7,5 @@ fi
 
 cd neovim || exit
 git switch master && git pull || echo "Non se puido actualizar o repo"
-make distclean && make CMAKE_BUILD_TYPE=RelWithDebInfo
+make distclean && make CMAKE_BUILD_TYPE=Release
 sudo make install

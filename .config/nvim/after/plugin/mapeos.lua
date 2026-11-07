@@ -42,7 +42,7 @@ map( {'o'}     , 'ik'             , ':<C-u>normal vik<CR>'                      
 map( {'o'}     , 'ak'             , ':<C-u>normal vikV<CR>'                          , { desc = "TextObject Around Change", remap = false,})
 map( {'n'}     , 's'              , '/'                                              , { desc = "Buscar"})
 map( {'n'}     , 'S'              , '?'                                              , { desc = "Buscar atrás"})
-map( {'x'}     , 's'              , ':s///c<Left><Left><Left>'                       , { desc = "Substituir"})
+map( {'x'}     , 's'              , ':s///gc<Left><Left><Left><Left>'                , { desc = "Substituir"})
 map( {'n'}     , '<Space><Space>' , 'a<Space><ESC>h'                                 , { desc = "Engadir un espazo", remap = false} )
 map( {'v'}     , '<A-j>'          , ":move'>+1<CR>gv"                                , { desc = "Mover visualmente abaixo", silent = true, remap = false})
 map( {'v'}     , '<A-k>'          , ":move'<-2<CR>gv"                                , { desc = "Mover visualmente abaixo", silent = true, remap = false})

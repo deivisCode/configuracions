@@ -1,5 +1,3 @@
-local funcions = require("deivis.snippets.funcions.funcions")
-
 return {
 
 s('use', { t('\\usepackage{'),i(1),t('}') }),
@@ -10,12 +8,12 @@ s('beg', {
         sn(nil,{
             t('\\begin{'),i(1),t({'}',''}),
             i(2),
-            t({'','\\end{'}),f(funcions.copy,1),t('}')
+            t({'','\\end{'}),extras.rep(1),t('}')
         }),
         sn(nil,{
             t('\\begin{'),i(1),t({'*}',''}),
             i(2),
-            t({'','\\end{'}),f(funcions.copy,1),t('*}')
+            t({'','\\end{'}),extras.rep(1),t('*}')
         })
     })
 }),
@@ -72,26 +70,5 @@ s(
         })
     }
 ),
-
--- Véxase https://github.com/L3MON4D3/LuaSnip/wiki/Misc#dynamicnode-with-user-input
-s(
-    "tab",
-    fmt(
-        [[
-        \begin{{tabular}}{{{}}}
-        {}
-        \end{{tabular}}
-        ]],
-        {
-            i(1, "c"),
-            d(2, funcions.tab, {1}, {
-                user_args = {
-                    function(snip) snip.rows = snip.rows + 1 end,
-                    function(snip) snip.rows = math.max(snip.rows - 1, 1) end
-                }
-            })
-        }
-    )
-)
 
 }

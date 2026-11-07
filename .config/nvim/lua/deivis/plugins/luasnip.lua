@@ -12,29 +12,28 @@ return {
         ls.setup({
             enable_autosnippets = true,
             update_events = { 'TextChanged', 'TextChangedI' },
-
-            -- Algo experimtenal, poden usarse ext_marks, e podemos colorear
-            -- con calquer grupo, ou engadir texto virtual. Poñendoo aquí val
-            -- para todos os snippets, ou podemos engadilo a cada snippet como
-            -- ultimo argumento, tipo node_etx_opts = { active = {...}}
-            -- ext_opts = {
-            --     [types.insertNode] = {
-            --         active = { virt_text = {{"I", "Amarelo"}}},
-            --     },
-            --     [types.choiceNode] = {
-            --         active = { virt_text = {{"C", "Laranxa"}}},
-            --     },
-            -- }
-
+            ext_opts = {
+                [types.insertNode] = { active = { virt_text = {{"<--", "Amarelo"}} } },
+                [types.choiceNode] = { active = { virt_text = {{"??", "Laranxa"}} } },
+            }
         })
 
-        -- :FACER: pasalos a strings típicas, máis lexible
-        -- require("luasnip.loaders.from_{vscode,snipmate,lua}")
-        -- Os de lua pode meterselle ls.fmta("a <> b") dentro (devolve táboa con nodos)
-        -- parsers de snipptes tipo LSP
-        -- ls.parser.parse_snippet({trig = "lsp"}, "$1 is ${2|hard,easy,challenging|}")
-        -- ls.parser.parse_snipmate("year", "The year is `strftime('%Y')`")
-        require("luasnip.loaders.from_lua").lazy_load( { paths = "./lua/deivis/snippets" })
+        ls.filetype_extend("json", {"typst"})
+
+        --[[
+            Engádense snippets con ls.add_snippet("all", { s(...), s(...) })
+            Snippets:
+                Luasnip : s("...", { t(..), d(...), ... })
+                FMT     : s("...", { fmt("{1} ... {2}", { s(...), s(...) }) })
+                LSP     : ls.parser.parse_snippet({trig = "trig"}, "...")
+                SNIPMATE: ls.parser.parse_snipmate({trig = "trig"}, "...")
+            Carga:
+                require("luasnip.loaders.from_{lua,vscode,snipmae}").lazy_load({paths=...})     -- all.lua, typst.lua
+                    vscode   -> .json   (precisa o package.json). Exemplos: https://github.com/rafamadriz/friendly-snippets 
+                    snipmate -> .snippet                          Exemplos: https://github.com/honza/vim-snippets
+        ]]
+        require("luasnip.loaders.from_lua").lazy_load( { paths = {"./snippets"} })
+        require("luasnip.loaders.from_vscode").lazy_load( { paths = {"./snippets"} })
 
     end
 }

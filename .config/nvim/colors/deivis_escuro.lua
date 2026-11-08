@@ -258,3 +258,7 @@ hl( "jqType", { link = "Operator"})
 
 -- NVIM TREE
 hl( "NvimTreeImageFile", { link = "Normal" } )
+
+-- BLINK
+hl( "BlinkCmpMenuBorder", { link = "Comment"})
+hl( "BlinkCmpDocBorder", { link = "Comment"})
